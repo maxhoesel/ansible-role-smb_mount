@@ -1,6 +1,7 @@
 galaxy_info:
   author: maxhoesel
   description: Create a Systemd Mount unit for a SMB share
+  role_name: smb_mount
 
   license: GPL-3.0-or-later
   min_ansible_version: 2.9
