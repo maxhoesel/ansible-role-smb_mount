@@ -1,0 +1,30 @@
+argument_specs:
+  main:
+    short_description: Main entrypoint
+    options:
+      smb_mount_src:
+        type: str
+        required: yes
+        description: URL of the SMB share to mount. Needs to be in the format understood by `mount`, such as //server.com/mount_path
+      smb_mount_dest:
+        type: path
+        required: yes
+        description: Path under which the share will be mounted. Must be absolute
+      smb_mount_guest:
+        type: bool
+        default: no
+        description: Whether to mount the share in guest mode
+      smb_mount_username:
+        type: str
+        description: Username with which to authenticate against the remote server. Required if `smb_mount_guest` is set to `no`
+      smb_mount_password:
+        type: str
+        description: Password with which to login on the remote server. Required if `smb_mount_guest` is set to `no`
+      smb_mount_uid:
+        type: int
+        default: "{{ ansible_user_uid }}"
+        description: Map the mount file owner to this local uid.
+      smb_mount_gid:
+        type: int
+        default: "{{ ansible_user_gid }}"
+        description: Map the mount file group to this local gid.

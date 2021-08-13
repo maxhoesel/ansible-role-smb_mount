@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for {{ smb_mount_src }}
+Requires=network-online.target
+After=network-online.service
+
+[Mount]
+What={{ smb_mount_src }}
+Where={{ smb_mount_dest }}
+Options=rw,{% if smb_mount_guest %}guest{% else %}username={{ smb_mount_username }},password={{ smb_mount_password }}{% endif %},uid={{ smb_mount_uid }},gid={{ smb_mount_gid }}{% if smb_mount_options %},{{ smb_mount_options }}{% endif %}
+
+Type=cifs
+
+[Install]
+WantedBy=multi-user.target

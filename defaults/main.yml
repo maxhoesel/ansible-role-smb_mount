@@ -1,0 +1,11 @@
+---
+# defaults file for smb_mount
+#smb_mount_src:
+#smb_mount_dest:
+
+smb_mount_guest: no
+#smb_mount_username:
+#smb_mount_password:
+smb_mount_uid: "{{ ansible_user_uid }}"
+smb_mount_gid: "{{ ansible_user_gid }}"
+smb_mount_options: ""

@@ -1,0 +1,6 @@
+---
+# handlers file for smb_mount
+- name: restart mount
+  systemd:
+    name: "{{ smb_mount_dest | trim(chars='/') | replace('/', '-') }}.mount"
+    state: restarted
