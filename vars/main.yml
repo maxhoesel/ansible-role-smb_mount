@@ -1,2 +1,3 @@
 ---
 # vars file for smb_mount
+smb_mount_iocharset: utf8

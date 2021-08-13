@@ -6,6 +6,22 @@
   package:
     name: cifs-utils
 
+- name: Look for minimal virtual kernel # noqa risky-shell-pipe
+  shell: dpkg -l | grep linux-image-virtual || true
+  changed_when: no
+  check_mode: no
+  register: smb_virtual_kernel
+
+- name: Extra linux kernel image package is installed
+  package:
+    name: linux-image-extra-virtual
+  when: smb_virtual_kernel.stdout
+  register: smb_kernel_package_install
+
+- name: Reboot host to use new kernel # noqa no-handler
+  reboot:
+  when: smb_kernel_package_install.changed
+
 - name: Mount directory is present
   file:
     path: "{{ smb_mount_dest }}"

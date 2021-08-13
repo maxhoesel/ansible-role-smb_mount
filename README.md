@@ -1,13 +1,16 @@
 maxhoesel.smb_mount
 =========
 
-A role to configure a systemd mount unit for a SMB share
+A role to configure a systemd mount unit for a SMB share.
+
+**NOTE**: In order to use the utf8 charset (the default for this role) on minimal ubuntu server installs,
+an additional kernel image package must be installed and the host must be rebooted. This role will perform these steps automatically
 
 Requirements
 ------------
 
 - `become` privileges
-- A host running Ubuntu or another Debian-based Linux distro
+- A host running a recent version of Ubuntu
 
 Role Variables
 --------------
@@ -40,6 +43,15 @@ Role Variables
 - Map the mount file owner to this local gid.
 - fstab mount option equivalent: `gid=`
 - Default: `{{ ansible_user_gid }}`
+
+##### `smb_mount_filemode`
+- Mode to apply to all files in the share
+- Default: `0755`
+
+##### `smb_mount_dirmode`
+- Mode to apply to all directories in the share
+- Default: `0755`
+
 
 ##### `smb_mount_options`
 - Additional mount options to pass to the mount unit

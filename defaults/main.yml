@@ -8,4 +8,6 @@ smb_mount_guest: no
 #smb_mount_password:
 smb_mount_uid: "{{ ansible_user_uid }}"
 smb_mount_gid: "{{ ansible_user_gid }}"
+smb_mount_filemode: "0755"
+smb_mount_dirmode: "0755"
 smb_mount_options: ""

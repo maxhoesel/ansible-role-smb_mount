@@ -28,3 +28,11 @@ argument_specs:
         type: int
         default: "{{ ansible_user_gid }}"
         description: Map the mount file group to this local gid.
+      smb_mount_filemode:
+        type: str
+        default: "0755"
+        description: Mode to apply to all files in the share
+      smb_mount_dirmode:
+        type: str
+        default: "0755"
+        description: Mode to apply to all directories in the share
