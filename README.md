@@ -15,6 +15,10 @@ Requirements
 Role Variables
 --------------
 
+##### `smb_mount_reboot_for_kernel`
+- Whether to automatically reboot the host to finish installing the kernel modules required for UTF-8 SMB support
+- Default: `yes`
+
 ##### `smb_mount_src`
 - URL of the SMB share to mount. Needs to be in the format understood by `mount`, such as `//server.com/mount_path`
 - Required: yes

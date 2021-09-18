@@ -20,7 +20,9 @@
 
 - name: Reboot host to use new kernel # noqa no-handler
   reboot:
-  when: smb_kernel_package_install.changed
+  when:
+    - smb_kernel_package_install.changed
+    - smb_mount_reboot_for_kernel
 
 - name: Mount directory is present
   file:
